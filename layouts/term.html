@@ -12,8 +12,8 @@
           {{ with .Params.listIcon }}
             {{ $val := . }}
             {{ if or (eq $val "contribute") (eq $val "writing") }}
-              {{ if eq $val "contribute" }}{{ $icon = "/contribute.png" }}{{ end }}
-              {{ if eq $val "writing" }}{{ $icon = "/writing.png" }}{{ end }}
+              {{ if eq $val "contribute" }}{{ $icon = ("contribute.png" | relURL) }}{{ end }}
+              {{ if eq $val "writing" }}{{ $icon = ("writing.png" | relURL) }}{{ end }}
             {{ else }}
               {{ $icon = $val }}
             {{ end }}
@@ -21,16 +21,16 @@
             {{ with .Params.icon }}
               {{ $val := . }}
               {{ if or (eq $val "contribute") (eq $val "writing") }}
-                {{ if eq $val "contribute" }}{{ $icon = "/contribute.png" }}{{ end }}
-                {{ if eq $val "writing" }}{{ $icon = "/writing.png" }}{{ end }}
+                {{ if eq $val "contribute" }}{{ $icon = ("contribute.png" | relURL) }}{{ end }}
+                {{ if eq $val "writing" }}{{ $icon = ("writing.png" | relURL) }}{{ end }}
               {{ else }}
                 {{ $icon = $val }}
               {{ end }}
             {{ end }}
           {{ end }}
           {{ if eq $icon "" }}
-            {{ if in .Params.tags "open-source" }}{{ $icon = "/contribute.png" }}{{ end }}
-            {{ if in .Params.tags "write" }}{{ $icon = "/writing.png" }}{{ end }}
+            {{ if in .Params.tags "open-source" }}{{ $icon = ("contribute.png" | relURL) }}{{ end }}
+            {{ if in .Params.tags "write" }}{{ $icon = ("writing.png" | relURL) }}{{ end }}
           {{ end }}
 
           {{/* teaser text preference */}}

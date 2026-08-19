@@ -9,7 +9,7 @@
     <body>
         <header>{{ partial "header.html" . }}</header>
         <div class="flex justify-center">
-            <img src="/border-home1.png" alt="border-home1" />
+            <img src="{{ "border-home1.png" | relURL }}" alt="border-home1">
         </div>
         <main>
             <div class="mx-auto w-full max-w-4xl px-4 py-6">
@@ -19,7 +19,7 @@
         {{ if or .IsHome (or (in (slice "post" "posts" "blog") .Type) (in (slice
         "posts" "blog") .Section)) }}
         <div class="mx-auto w-full max-w-4xl px-4 py-2 mt-8">
-            <img src="/recent-work.png" alt="recent-work" />
+            <img src="{{ "recent-work.png" | relURL }}" alt="recent-work">
         </div>
         <div class="mx-auto w-full max-w-4xl px-4 py-4">
             {{/* Get regular posts */}} {{ $candidates := where
@@ -90,7 +90,7 @@
         </div>
         {{ end }}
         <div class="flex justify-center">
-            <img src="/border-home1.png" alt="border-home1" />
+            <img src="{{ "border-home1.png" | relURL }}" alt="border-home1">
         </div>
         <footer>{{ partial "footer.html" . }}</footer>
     </body>
