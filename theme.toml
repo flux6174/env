@@ -1,0 +1,11 @@
+name = "flurry101"
+license = "GPL 3.0"
+licenselink = "https://www.gnu.org/licenses/gpl-3.0.en.html"
+description = "A pixel, ASCII, and retro Hugo theme."
+
+tags = ["blog", "pixel", "minimal", "lavender-blue", "personal", "simple", "retro",]
+features = ["post-icons", "scrolling-table-of-contents", "external-links-treated-as-posts",]
+
+[author]
+    name = "flurry101"
+    homepage = "#"

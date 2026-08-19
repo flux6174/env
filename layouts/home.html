@@ -1,0 +1,48 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<div class="grid lg:grid-cols-2 gap-4">
+	<div class="not-prose flex cursor-default flex-col space-y-4 rounded-lg border border-white p-4">
+		<img src="{{ or $p.portraitImage "/portrait.png" }}" alt="Portrait" class="w-full h-auto">
+		<div>
+			{{ with $p.introTitle }}<strong>{{ . }}</strong>{{ end }}
+			{{ with $p.introBody }}{{ . | markdownify }}{{ end }}
+		</div>
+	</div>
+	<div class="grid lg:grid-rows-2 gap-4">
+		<div class="not-prose flex cursor-default flex-col space-y-2 rounded-lg border border-white p-6">
+			<img src="{{ or $p.statusImage "/status.png" }}" alt="Status" class="self-start">
+			{{ with $p.statusText }}<div>{{ . | markdownify }}</div>{{ end }}
+		</div>
+		<div class="not-prose flex cursor-default flex-col space-y-3 rounded-lg border border-white p-6">
+			<div class="text-sm font-medium uppercase tracking-wide" style="color: var(--color-text-primary)">Find me on:</div>
+			<div class="flex flex-col gap-1 text-base leading-relaxed" style="color: var(--color-text-primary);">
+				{{ with $p.github }}
+					<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 underline decoration-[1.5px] underline-offset-2 transition hover:opacity-80">
+						github
+						<span aria-hidden="true">↗</span>
+					</a>
+				{{ end }}
+				{{ with $p.linkedin }}
+					<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 underline decoration-[1.5px] underline-offset-2 transition hover:opacity-80">
+						linkedin
+						<span aria-hidden="true">↗</span>
+					</a>
+				{{ end }}
+				{{ with $p.email }}
+					<a href="mailto:{{ . }}" class="inline-flex items-center gap-1 underline decoration-[1.5px] underline-offset-2 transition hover:opacity-80">
+						email
+						<span aria-hidden="true">↗</span>
+					</a>
+				{{ end }}
+				{{ with $p.leetcode }}
+					<a href="{{ . }}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 underline decoration-[1.5px] underline-offset-2 transition hover:opacity-80">
+						leetcode
+						<span aria-hidden="true">↗</span>
+					</a>
+				{{ end }}
+			</div>
+		</div>
+	</div>
+</div>
+{{ .Content }}
+{{ end }}
