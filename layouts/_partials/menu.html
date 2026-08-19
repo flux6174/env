@@ -37,7 +37,7 @@
           {{- end -}}
         >
           {{- if .Params.image }}
-            <img src="{{ .Params.image }}" alt="{{ $name }}">
+            <img src="{{ .Params.image | absURL }}" alt="{{ $name }}">
           {{- else }}
             {{ $name }}
           {{- end }}

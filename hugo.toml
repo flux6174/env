@@ -8,7 +8,7 @@ title = ' flux6174'
     pageRef = '/'
     weight = 1
     [menus.main.params]
-      image = '/digigarden2025.png'
+      image = 'digigarden2025.png'
 
   [[menus.main]]
     name = 'write'

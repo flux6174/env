@@ -47,7 +47,7 @@
                 >
                     <h3 class="font-semibold flex items-center gap-2">
                         {{ with $post.Params.listIcon }}<img
-                            src="{{ . }}"
+                            src="{{ . | absURL }}"
                             alt=""
                         />{{ end }} {{ $post.LinkTitle }}
                     </h3>
@@ -73,7 +73,7 @@
                     aria-label="{{ $link.title }}"
                 >
                     <h3 class="font-semibold flex items-center gap-2">
-                        {{ with $link.icon }}<img src="{{ . }}" alt="" />{{ end
+                        {{ with $link.icon }}<img src="{{ . | absURL }}" alt="" />{{ end
                         }} {{ $link.title }}
                     </h3>
 

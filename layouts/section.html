@@ -39,25 +39,25 @@
           {{ with $post.Params.listIcon }}
             {{ $val := . }}
             {{ if or (eq $val "contribute") (eq $val "writing") }}
-              {{ if eq $val "contribute" }}{{ $icon = ("contribute.png" | relURL) }}{{ end }}
-              {{ if eq $val "writing" }}{{ $icon = ("writing.png" | relURL) }}{{ end }}
+              {{ if eq $val "contribute" }}{{ $icon = ("contribute.png" | absURL) }}{{ end }}
+              {{ if eq $val "writing" }}{{ $icon = ("writing.png" | absURL) }}{{ end }}
             {{ else }}
-              {{ $icon = $val }}
+              {{ $icon = ($val | absURL) }}
             {{ end }}
           {{ else }}
             {{ with $post.Params.icon }}
               {{ $val := . }}
               {{ if or (eq $val "contribute") (eq $val "writing") }}
-                {{ if eq $val "contribute" }}{{ $icon = ("contribute.png" | relURL) }}{{ end }}
-                {{ if eq $val "writing" }}{{ $icon = ("writing.png" | relURL) }}{{ end }}
+                {{ if eq $val "contribute" }}{{ $icon = ("contribute.png" | absURL) }}{{ end }}
+                {{ if eq $val "writing" }}{{ $icon = ("writing.png" | absURL) }}{{ end }}
               {{ else }}
-                {{ $icon = $val }}
+                {{ $icon = ($val | absURL) }}
               {{ end }}
             {{ end }}
           {{ end }}
           {{ if eq $icon "" }}
-            {{ if in $post.Params.tags "open-source" }}{{ $icon = ("contribute.png" | relURL) }}{{ end }}
-            {{ if in $post.Params.tags "write" }}{{ $icon = ("writing.png" | relURL) }}{{ end }}
+            {{ if in $post.Params.tags "open-source" }}{{ $icon = ("contribute.png" | absURL) }}{{ end }}
+            {{ if in $post.Params.tags "write" }}{{ $icon = ("writing.png" | absURL) }}{{ end }}
           {{ end }}
 
           {{/* teaser text preference */}}
@@ -85,7 +85,7 @@
             <article class="not-prose flex cursor-pointer flex-col space-y-4 rounded-lg border border-transparent p-6 transition-all duration-150 hover:border-pink-300">
               <h2 class="text-xl font-semibold">
                 <span class="text-white flex items-center">
-                  <img src="{{ $link.icon }}" alt="" class="mr-2">
+                  <img src="{{ $link.icon | absURL }}" alt="" class="mr-2">
                   {{ $link.title }}
                 </span>
               </h2>
