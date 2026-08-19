@@ -51,6 +51,9 @@ jobs:
             npm install
           fi
 
+      - name: Build Tailwind CSS
+        run: npm run build
+
       - name: Build Hugo site
         env:
           HUGO_ENVIRONMENT: production
